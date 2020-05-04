@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5 task</title>
+</head>
+<body>
+<div class="form-wrap">
+    <h3>Форма ввода личных данных</h3>
+    <form id="personal">
+        <label for="fio">ФИО</label> <input value="" id="fio" type="text"/> <br>
+        <br>
+        <label for="tlf">Телефон</label>
+        <input type="button" id = "secretButton" onclick="work()" value="+">
+        <input id="tlf" type="text"/> <br>
+        <br>
+        <label for="comment">Комментарий</label> <input id="comment" type="text"/> <br>
+        <br>
+        <div  id="secret" style="display:none;">
+            <label for="tlfn">Телефон N</label> <input id="tlfn" type="text"/>  <button onclick="work()">+</button>  <br>
+            <br>
+        </div>
+        <input type="button" value="Отправить" onclick="sendData()">
+    </form>
+    <br>
+    <input type="button" value="Send" onclick="fillForm()">
+    <script type="text/javascript" >
+        function work() {
+            document.getElementById("secret").style.display = "block";
+            document.getElementById("secretButton").style.display = "none";
+
+        }
+    </script>
+    <script type="text/javascript" >
+        function Person(fio, tlf, comment) {
+            this.fio =fio;
+            this.tlf = tlf;
+            this.comment = comment;
+        }
+    </script>
+    <script type="text/javascript" >
+        function fillForm() {
+            let user = new Person("Petrov Petr Petrovich", "+375(29)102-102", "delete")
+            document.getElementById("fio").value = user.fio;
+            document.getElementById("tlf").value = user.tlf;
+            document.getElementById("comment").value = user.comment;
+            sendData();
+        }
+    </script>
+    <script type="text/javascript" >
+        function sendData() {
+            alert("form  data sent to server");
+        }
+    </script>
+</div>
+</body>
+</html>

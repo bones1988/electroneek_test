@@ -1,0 +1,1 @@
+insert into department (id,name) value ('1','new otdel');
